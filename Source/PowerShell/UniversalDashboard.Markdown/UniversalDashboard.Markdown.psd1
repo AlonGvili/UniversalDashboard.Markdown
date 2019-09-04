@@ -95,7 +95,7 @@
         PSData = @{
     
             # Tags applied to this module. These help with module discovery in online galleries.
-            Tags = @('UniversalDashboard','Markdown', 'ud-control')
+            Tags = @('UniversalDashboard','Markdown')
     
             # A URL to the license for this module.
             LicenseUri = 'https://github.com/AlonGvili/UniversalDashboard.Markdown/blob/master/LICENSE'

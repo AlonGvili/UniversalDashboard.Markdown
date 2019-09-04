@@ -26,7 +26,7 @@ import List from "./components/list/list";
 import ListItem from "./components/list/listitem";
 // import Text from "./components/text/text";
 
-export default class UDMarkdown extends React.Component {
+class UDMarkdown extends React.Component {
     render(){      
         return(
                 <ReactMarkdown source={this.props.markdown} renderers={{
@@ -101,3 +101,4 @@ export default class UDMarkdown extends React.Component {
     }
 }
 
+UniversalDashboard.register("ud-markdown", UDMarkdown);

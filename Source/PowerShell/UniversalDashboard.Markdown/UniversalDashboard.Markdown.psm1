@@ -64,7 +64,7 @@ function New-UDMarkdown
         [parameter()]
         [switch]$ShowLineNumberInCodeBlock,
         [parameter()]
-        [hashtable]$Styles = @{},
+        [hashtable]$Styles,
         [parameter()]
         [switch]$RenderRawHtml
     )
