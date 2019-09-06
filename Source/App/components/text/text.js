@@ -4,12 +4,12 @@ import styled from "styled-components";
 export default class Text extends React.Component {
     render() {
         const {styles, value} = this.props;
-        console.log(this.props)
-        const Tx = styled.textarea` 
-            ${styles} 
-        `;
+        let textStyle
+        if(styles.hasOwnProperty('text')){
+            textStyle = styles.text   
+        }
         return ( 
-            <Tx>{value}</Tx>
+            <text className='ud-markdown-text' style={{...textStyle}}>{value}</text>
         );
     }
 } 

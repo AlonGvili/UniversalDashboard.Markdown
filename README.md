@@ -85,7 +85,6 @@ $Page = New-UDPage -Name Home -Icon code -Content {
 }
 
 $dbProps = @{
-    FontIconStyle = 'LineAwesome'
     BackgroundColor = '#24292e'
     FontColor = '#b0bec5'
     NavBarColor = '#202529'
@@ -165,12 +164,12 @@ table = @{
     }
     tbody = @{
         ...
-        trow = @{
-            ...
-            td = @{
-                ...
-            }
-        }
+    }
+    trow = @{
+        ...
+    }
+    td = @{
+        ...
     }
 }
 ```
@@ -202,6 +201,22 @@ list = @{
 }
 ```
 
+---
+## Notes
+When you import this module by default the td css style from UDThme will be reset to unset , this is because UDTheme will override the Markdown style for td tag.                               
+
+I added className for every style tag from the list above so you can use UDTheme to style the markdown doc, for example in order to style the table tag you will need to add this to your UDTheme definition
+```powershell
+'.ud-markdown-table' = @{
+    backgroundColor = 'red'
+}
+```
+To style the table head add this code
+```powershell
+'.ud-markdown-table-head' = @{
+    backgroundColor = 'green'
+}
+```
 ---
 ## Downloads
 

@@ -1,4 +1,3 @@
-Get-UDDashboard | Stop-UDDashboard
 
 $Page = New-UDPage -Name Home -Icon code -Content {
     New-UDRow -Columns {
@@ -11,22 +10,22 @@ $Page = New-UDPage -Name Home -Icon code -Content {
 
                 root =@{
                     border = '2px solid rgb(24, 26, 31)'
-                    'background-color' = '#343a40'
+                    backgroundColor = '#343a40'
                     margin = '20px 0'
                 }
                 h1 = @{
                     color = '#9da5b4'; 
                     padding = '15px'; 
-                    'text-align' = 'center'; 
-                    'background-color' = '#24292e'; 
-                    'margin-bottom' = '0'
-                    'border-top' = '2px solid rgb(24, 26, 31)'
-                    'border-bottom' = '2px solid rgb(24, 26, 31)'
+                    textAlign = 'center'; 
+                    backgroundColor = '#24292e'; 
+                    marginBottom = '0'
+                    borderTop = '2px solid rgb(24, 26, 31)'
+                    borderBottom = '2px solid rgb(24, 26, 31)'
                 }
                 h2 = @{
                     color = '#fff'; 
                     padding = '20px'
-                    'font-weight' = '600'
+                    fontWeight = '600'
                 }
                 h3 = @{
                     color = '#8e24aa'; 
@@ -39,51 +38,50 @@ $Page = New-UDPage -Name Home -Icon code -Content {
                 h6 = @{
                     color = '#9da5b4'; 
                     padding = '20px'
-                    'font-weight' = '600'
-                    'text-align' = 'center'
+                    fontWeight = '600'
+                    textAlign = 'center'
                 }
                 blockquote = @{
-                    'color' = '#9da5b4'; 
-                    'border-left' = '5px solid #fff'; 
-                    'background-color' = 'rgb(32, 37, 41)'; 
-                    'padding' = '10px'
+                    color = '#9da5b4'; 
+                    borderLeft = '5px solid #fff'; 
+                    backgroundColor = 'rgb(32, 37, 41)'; 
+                    padding = '10px'
                     margin = '0 15px 20px'
                 }
                 img = @{
                     display = 'block'; 
-                    'margin-left' = 'auto'; 
-                    'margin-right' = 'auto'
+                    marginLeft = 'auto'; 
+                    marginRight = 'auto'
                 }
                 inlinecode = @{
-                    'background-color' = 'rgb(32, 37, 41)';
-                    'border' = '1px solid rgb(24, 26, 31)';
+                    backgroundColor = 'rgb(32, 37, 41)';
+                    border = '1px solid rgb(24, 26, 31)';
                     color = '#fff';
                     padding = '10px';
                 }
                 codeBlock = @{
-                    'color' = '#fff'; 
-                    'border' = '1px solid rgb(24, 26, 31)'; 
-                    'background-color' = 'rgb(32, 37, 41)'; 
-                    'padding' = '10px'
+                    color = '#fff'; 
+                    border = '1px solid rgb(24, 26, 31)'; 
+                    backgroundColor = 'rgb(32, 37, 41)'; 
+                    padding = '10px'
                     margin = '20px 20px'
-                    'border-radius' = '3px'
-
+                    borderRadius = '3px'
                 }
                 p = @{
                     margin = '25px 20px'
                 }
                 table =  @{
-                    'border' = '1px solid rgb(24, 26, 31)'; 
-                    'background-color' = '#24292e'; 
-                    margin = '20px'
+                    border = '1px solid rgb(24, 26, 31)'; 
+                    backgroundColor = '#24292e'; 
+                    margin = 20
                     width = '70%'
                     thead = @{
-                        color = '#0d474e';
-                        'background-color' = '#45b9c8'
-                        padding = '20px'
-                        'font-weight' = '600'
-                        'font-size' = '20px'
-                        'border-bottom' = '1px solid rgb(24, 26, 31)'
+                        color = '#0d474e'
+                        backgroundColor = '#45b9c8'
+                        padding = 20
+                        fontWeight = 600
+                        fontSize = 20
+                        borderBottom = '1px solid rgb(24, 26, 31)'
                     }
                     tbody = @{
                         trow = @{
@@ -109,7 +107,7 @@ $Page = New-UDPage -Name Home -Icon code -Content {
                 }
                 link = @{
                     color = '#fff'
-                    'font-weight' = '600'
+                    fontWeight = 600
                 }
                 list = @{
                     ol = @{
@@ -117,7 +115,7 @@ $Page = New-UDPage -Name Home -Icon code -Content {
                     }
                     ul = @{
                         color = '#fff'
-                        'padding-left' = '20px !important'
+                        paddingLeft = '20px !important'
                     }
                     listitem = @{
                         'list-style-type' = 'disk'
@@ -129,7 +127,7 @@ $Page = New-UDPage -Name Home -Icon code -Content {
     }
 }
 
-$db = New-UDDashboard -Title "UDMarkdown" -Pages $Page -FontIconStyle LineAwesome -BackgroundColor '#24292e' -FontColor '#b0bec5' -NavBarColor '#202529' -NavbarLinks @(
+$db = New-UDDashboard -Title "UDMarkdown" -Pages $Page -BackgroundColor '#24292e' -FontColor '#b0bec5' -NavBarColor '#202529' -NavbarLinks @(
     New-UDLink -Text 'GitHub' -Url 'https://github.com/AlonGvili/UniversalDashboard.Markdown' -Icon github_alt -FontColor '#fff'
 ) -NavBarFontColor '#fff'
 

@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 //const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
 
-var BUILD_DIR = path.resolve(__dirname, 'powershell');
+var BUILD_DIR = path.resolve(__dirname, 'output/UniversalDashboard.Markdown');
 var SRC_DIR = path.resolve(__dirname);
 var APP_DIR = path.resolve(__dirname, 'app');
 
@@ -16,10 +16,10 @@ module.exports = (env) => {
       libraryTarget: "var",
       path: BUILD_DIR,
       filename: isDev ? 'UniversalDashboard.Markdown.bundle.js' : 'UniversalDashboard.Markdown.[hash].bundle.js',
-      publicPath: "/"
+      publicPath: ""
     },
     module : {
-      loaders : [
+      rules : [
         { test: /\.(js|jsx)$/, exclude: [/node_modules/], loader: 'babel-loader'}
       ]
     },

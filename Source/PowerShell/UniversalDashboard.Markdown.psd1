@@ -107,10 +107,7 @@
             # IconUri = ''
     
             # ReleaseNotes of this module
-            ReleaseNotes = 'Add support for styles using parameter styles
-                Remove parameter CodeBlockStyle                
-            '
-    
+            ReleaseNotes = 'Clean up the module and the code, fix root style must have style or empty hashtable'
         } # End of PSData hashtable
     
     } # End of PrivateData hashtable

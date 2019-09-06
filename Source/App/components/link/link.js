@@ -6,7 +6,7 @@ export default class Link extends React.Component {
         const {href, value, styles } = this.props;
         console.log(value)
         const Lk = styled.a` 
-            ${styles} 
+        ${styles.link ? styles.link : null} 
         `;
         return ( 
             <Lk href={href}>{value.children}</Lk>

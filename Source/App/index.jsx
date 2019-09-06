@@ -24,8 +24,10 @@ import Delete from "./components/text/delete";
 import Link from "./components/link/link";
 import List from "./components/list/list";
 import ListItem from "./components/list/listitem";
-// import Text from "./components/text/text";
+import Text from "./components/text/text";
+import resetUdThemeTd from './reset'
 
+resetUdThemeTd()
 class UDMarkdown extends React.Component {
     render(){
         return(
@@ -40,61 +42,64 @@ class UDMarkdown extends React.Component {
                                 heading.level == 4 ? <H4Tag value={heading.children} styles={this.props.styles.h4}/> :
                                 heading.level == 5 ? <H5Tag value={heading.children} styles={this.props.styles.h5}/> :
                                 heading.level == 6 ? <H6Tag value={heading.children} styles={this.props.styles.h6}/> :
-                                                     <div>No Heading</div>;
+                                <div>No Heading</div>;
                     },
                     blockquote: (blockquote) => {
-                        return <Blockquote value={blockquote.children} styles={this.props.styles.blockquote}/>
+                        return <Blockquote value={blockquote.children} styles={this.props.styles}/>
                     },
                     image: (image) => {
-                        return <Image src={image.src} alt={image.alt} title={image.title} styles={this.props.styles.img}/>
+                        return <Image src={image.src} alt={image.alt} title={image.title} styles={this.props.styles}/>
                     },
                     inlineCode: (inlineCode) => {
                         return <InlineCode value={inlineCode.children} styles={this.props.styles.inlinecode}/>
                     },
                     paragraph: (paragraph) => {
-                        return <Paragraph value={paragraph.children} styles={this.props.styles.p}/>
+                        return <Paragraph value={paragraph.children} styles={this.props.styles}/>
                     },
                     root: (root) => {
-                        return this.props.styles.root !== null ? <Root value={root.children} styles={this.props.styles.root}/> : null
+                        return <Root value={root.children} styles={this.props.styles}/>
                     },
                     table: (table) => {
-                        return <Table value={table.children} styles={this.props.styles.table}/>
+                        return <Table value={table.children} styles={this.props.styles}/>
                     },
                     tableHead: (tableHead) => {
-                        return <Thead value={tableHead.children} styles={this.props.styles.table.thead}/>
+                        return <Thead value={tableHead.children} styles={this.props.styles}/>
                     },
                     tableBody: (tableBody) => {
-                        return <Tbody value={tableBody.children} styles={this.props.styles.table.tbody}/>
+                        return <Tbody value={tableBody.children} styles={this.props.styles}/>
                     },
                     tableRow: (tableRow) => {
-                        return <Trow value={tableRow.children} styles={this.props.styles.table.tbody.trow}/>
+                        return <Trow value={tableRow.children} styles={this.props.styles}/>
                     },
                     tableCell: (tableCell) => {
-                        return <Tcell value={tableCell.children} styles={this.props.styles.table.tbody.trow.td}/>
+                        return <Tcell value={tableCell.children} styles={this.props.styles} />
                     },
                     thematicBreak: (thematicBreak) => {
-                        return <Hr value={thematicBreak.children} styles={this.props.styles.hr}/>
+                        return <Hr value={thematicBreak.children} styles={this.props.styles}/>
                     },
                     emphasis: (emphasis) => {
-                        return <Emphasis value={emphasis.children} styles={this.props.styles.em}/>
+                        return <Emphasis value={emphasis.children} styles={this.props.styles}/>
                     },
                     strong: (strong) => {
-                        return <Strong value={strong.children} styles={this.props.styles.strong}/>
+                        return <Strong value={strong.children} styles={this.props.styles}/>
                     },
                     delete: (del) => {
-                        return <Delete value={del.children} styles={this.props.styles.delete}/>
+                        return <Delete value={del.children} styles={this.props.styles}/>
                     },
                     link: (link) => {
-                        return <Link href={link.href} value={link} styles={this.props.styles.link}/>
+                        return <Link href={link.href} value={link} styles={this.props.styles}/>
                     },
                     linkReference: (linkReference) => {
-                        return <Link href={linkReference.href} value={linkReference} styles={this.props.styles.link}/>
+                        return <Link href={linkReference.href} value={linkReference} styles={this.props.styles}/>
                     },
                     list: (list) => {
-                        return list.ordered ? <List value={list} styles={this.props.styles.list.ol}/> : <List value={list} styles={this.props.styles.list.ul}/>
+                        return list.ordered ? <List value={list} styles={this.props.styles}/> : <List value={list} styles={this.props.styles}/>
                     },
                     listItem: (listItem) => {
-                        return <ListItem value={listItem.children} styles={this.props.styles.list.listitem}/>
+                        return <ListItem value={listItem.children} styles={this.props.styles}/>
+                    },
+                    text: (text) => {
+                        return <Text value={text.children} styles={this.props.styles}/>
                     }
                 }} escapeHtml={this.props.escapeHtml} />
         )

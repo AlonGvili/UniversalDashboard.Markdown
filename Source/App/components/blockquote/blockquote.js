@@ -4,9 +4,10 @@ import styled from "styled-components";
 export default class Blockquote extends React.Component {
     render() {
         const {value, styles} = this.props;
-        const Bquote = styled.blockquote` 
-            ${styles} 
-        `;
-        return ( <Bquote>{value}</Bquote> );
+        let blockquoteStyle
+        if(styles.hasOwnProperty('blockquote')){
+            blockquoteStyle = styles.blockquote   
+        }
+        return ( <blockquote className='ud-markdown-blockquote' style={{...blockquoteStyle}}>{value}</blockquote> );
     }
 } 

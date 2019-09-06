@@ -1,6 +1,14 @@
 $JsFile = Get-ChildItem "$PSScriptRoot\UniversalDashboard.Markdown.*.bundle.js"
+# Source maps to make it easier to debug in the browser 
+$Maps = Get-ChildItem "$PSScriptRoot\*.map"
 
-$AssetId = [UniversalDashboard.Services.AssetService]::Instance.RegisterScript($JsFile)
+$AssetId = [UniversalDashboard.Services.AssetService]::Instance.RegisterScript($JsFile.FullName)
+# Register all the source map files so we can make debugging easier.
+foreach($item in $Maps)
+{
+    [UniversalDashboard.Services.AssetService]::Instance.RegisterAsset($item.FullName) | Out-Null
+}
+
 <#
 .SYNOPSIS
 Markdown control for Universal Dashboard.
@@ -33,14 +41,12 @@ New-UDPage -Name Home -Icon code -Content {
     New-UDRow -Columns {
         New-UDColumn -Content {
             # Get the content of markdown file.
-            $md = Get-Content -Path .\PowerShell\DemoPage.md
-
-            
+            $md = Get-Content -Path .\PowerShell\DemoPage.md -Raw
             New-UDMarkdown -Markdown $md -CodeBlockStyle @{
                 'border-radius' = '6px' 
                 background = '#e6e6e6' 
                 padding = '16px'
-            } -CodeBlockShowLineNumbers
+            } -ShowLineNumberInCodeBlock
         }
     }
 }
@@ -53,8 +59,7 @@ The default theme of the highlight code is github, and it can't be change.
 
 #>
 
-function New-UDMarkdown
-{
+function New-UDMarkdown {
     param
     (
         [Parameter()]
@@ -69,40 +74,16 @@ function New-UDMarkdown
         [switch]$RenderRawHtml
     )
 
-    switch ($ShowLineNumberInCodeBlock)
-    {
-        $true
-        {
-            $LineNumber = $true
-        }
-        $false
-        {
-            $LineNumber = $false
-        }
-    }
-
-    switch ($RenderRawHtml)
-    {
-        $true
-        {
-            $RawHtml = $true
-        }
-        $false
-        {
-            $RawHtml = $false
-        }
-    }
-
     @{
-        assetId = $AssetId 
-        isPlugin = $true 
-        id = $Id 
-        type = 'ud-markdown'
+        assetId         = $AssetId 
+        isPlugin        = $true 
+        id              = $Id 
+        type            = 'ud-markdown'
 
         markdown        = $Markdown.toString()
-        showLineNumbers = $LineNumber
+        showLineNumbers = $ShowLineNumberInCodeBlock.IsPresent
         styles          = $Styles
-        escapeHtml      = $RawHtml
+        escapeHtml      = $RenderRawHtml.IsPresent
     }
 }
 

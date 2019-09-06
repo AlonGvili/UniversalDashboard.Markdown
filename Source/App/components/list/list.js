@@ -1,18 +1,21 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 export default class List extends React.Component {
     render() {
-        const {value,styles } = this.props;
-        console.log(value)
-        const Ul = styled.ul` 
-            ${styles} 
-        `;
-        const Ol = styled.ol` 
-            ${styles} 
-        `;
+        const {value,styles } = this.props
+        let listStyle 
+        if(styles.hasOwnProperty('list')){
+            if(styles.list.hasOwnProperty('ol')){
+                listStyle = styles.list.ol
+            }
+            else if(styles.list.hasOwnProperty('ul')){
+                listStyle = styles.list.ul
+            }
+        }
+
         return ( 
-            value.ordered ? <Ol>{value.children}</Ol> : <Ul>{value.children}</Ul>
+            value.ordered ? <ol className='ud-markdown-list-ol' style={{...listStyle}}>{value.children}</ol> : <ul className='ud-markdown-list-ul' style={{...listStyle}}>{value.children}</ul>
         );
     }
 } 

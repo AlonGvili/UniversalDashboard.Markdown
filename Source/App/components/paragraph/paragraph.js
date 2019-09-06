@@ -4,9 +4,12 @@ import styled from "styled-components";
 export default class Paragraph extends React.Component {
     render() {
         const {value, styles} = this.props;
-        const P = styled.p` 
-            ${styles} 
-        `;
-        return ( <P>{value}</P> );
+        let paragraphStyle
+        if(styles.hasOwnProperty('p')){
+            paragraphStyle = styles.p   
+        }
+        return ( 
+            <p className='ud-markdown-paragraph' style={{...paragraphStyle}}>{value}</p> 
+        );
     }
 } 

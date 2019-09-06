@@ -1,14 +1,15 @@
 import React from "react";
-import styled from "styled-components";
+// import styled from "styled-components";
 
 export default class Strong extends React.Component {
     render() {
         const {styles, value} = this.props;
-        const St = styled.strong` 
-            ${styles} 
-        `;
+        let strongStyle
+        if(styles.hasOwnProperty('strong')){
+            strongStyle = styles.strong   
+        }
         return ( 
-            <St>{value}</St>
+            <strong className='ud-markdown-strong' style={{...strongStyle}}>{value}</strong>
         );
     }
 } 

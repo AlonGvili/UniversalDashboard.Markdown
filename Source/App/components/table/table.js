@@ -3,14 +3,9 @@ import styled from "styled-components";
 
 export default class Table extends React.Component {
     render() {
-        const {styles, value} = this.props;
-        console.log(this.props)
-        console.log('value only: ' + value[0].children)
-        const Tbl = styled.table` 
-            ${styles} 
-        `;
+        const {styles, value} = this.props
         return ( 
-            <Tbl>{value}</Tbl>
+            <table className='ud-markdown-table' style={styles.hasOwnProperty('table') ? {...styles.table} : null}>{value}</table>
         );
     }
 } 
