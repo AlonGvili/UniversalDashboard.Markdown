@@ -220,7 +220,7 @@ To style the table head add this code
 ---
 ## Downloads
 
-> Get this module from PSGallery [UniversalDashboard.Markdown](https://www.powershellgallery.com/packages/UniversalDashboard.Markdown/1.0.0)
+> Get this module from PSGallery [UniversalDashboard.Markdown](https://www.powershellgallery.com/packages/UniversalDashboard.Markdown/1.2.0)
 
 or
 
