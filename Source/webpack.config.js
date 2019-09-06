@@ -16,7 +16,6 @@ module.exports = (env) => {
       libraryTarget: "var",
       path: BUILD_DIR,
       filename: isDev ? 'UniversalDashboard.Markdown.bundle.js' : 'UniversalDashboard.Markdown.[hash].bundle.js',
-      //sourceMapFilename: 'bundle.map',
       publicPath: "/"
     },
     module : {
@@ -31,16 +30,8 @@ module.exports = (env) => {
     resolve: {
       extensions: ['.json', '.js', '.jsx']
     },
-    plugins: [
-      // new UglifyJSPlugin({
-      //   compress: {
-      //     warnings: false
-      //   },
-      //   sourceMap: true
-      // })
-    ]
-      ,
-   // devtool: 'source-map',
+    plugins: [],
+   devtool: 'source-map',
   };
 }
 

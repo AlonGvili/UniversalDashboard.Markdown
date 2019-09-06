@@ -27,15 +27,15 @@ import ListItem from "./components/list/listitem";
 // import Text from "./components/text/text";
 
 class UDMarkdown extends React.Component {
-    render(){      
+    render(){
         return(
                 <ReactMarkdown source={this.props.markdown} renderers={{
                     code: (code) => {
                         return <CodeBlock value={code.value} language={code.language} showLineNumbers={this.props.showLineNumbers} customStyle={this.props.styles.codeBlock} />
                     },
                     heading: (heading) => {
-                        return  heading.level == 1 ? <H1Tag value={heading.children} styles={this.props.styles.h1}/> : 
-                                heading.level == 2 ? <H2Tag value={heading.children} styles={this.props.styles.h2}/> : 
+                        return  heading.level == 1 ? <H1Tag value={heading.children} styles={this.props.styles.h1}/> :
+                                heading.level == 2 ? <H2Tag value={heading.children} styles={this.props.styles.h2}/> :
                                 heading.level == 3 ? <H3Tag value={heading.children} styles={this.props.styles.h3}/> :
                                 heading.level == 4 ? <H4Tag value={heading.children} styles={this.props.styles.h4}/> :
                                 heading.level == 5 ? <H5Tag value={heading.children} styles={this.props.styles.h5}/> :
@@ -55,7 +55,7 @@ class UDMarkdown extends React.Component {
                         return <Paragraph value={paragraph.children} styles={this.props.styles.p}/>
                     },
                     root: (root) => {
-                        return <Root value={root.children} styles={this.props.styles.root}/>
+                        return this.props.styles.root !== null ? <Root value={root.children} styles={this.props.styles.root}/> : null
                     },
                     table: (table) => {
                         return <Table value={table.children} styles={this.props.styles.table}/>
