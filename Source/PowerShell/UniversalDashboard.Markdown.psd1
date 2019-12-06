@@ -12,7 +12,7 @@
     RootModule = 'UniversalDashboard.Markdown.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.2.0'
+    ModuleVersion = '1.3.0'
     
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -72,13 +72,13 @@
     FunctionsToExport = 'New-UDMarkdown'
     
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-    CmdletsToExport = '*'
+    # CmdletsToExport = '*'
     
     # Variables to export from this module
-    VariablesToExport = '*'
+    # VariablesToExport = '*'
     
     # Aliases to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no aliases to export.
-    AliasesToExport = '*'
+    # AliasesToExport = '*'
     
     # DSC resources to export from this module
     # DscResourcesToExport = @()
@@ -107,7 +107,9 @@
             # IconUri = ''
     
             # ReleaseNotes of this module
-            ReleaseNotes = 'Clean up the module and the code, fix root style must have style or empty hashtable'
+            ReleaseNotes = 'Register only powershell, csharp, jsx, javascript, json as languages for react-syntax-highlighter,
+            for small bundle size and fast loading & rendering the content.
+            add react suspense and lazy for code splitting and lazy loading.'
         } # End of PSData hashtable
     
     } # End of PrivateData hashtable

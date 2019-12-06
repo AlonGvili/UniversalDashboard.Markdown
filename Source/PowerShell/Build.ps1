@@ -42,8 +42,8 @@ Copy-Item $PSFolder\UniversalDashboard.Markdown.psd1 $OutputPath\UniversalDashbo
 Remove-Item -Path "$PSFolder\UniversalDashboard.Markdown.*.bundle.js" -Force -ErrorAction SilentlyContinue
 Remove-Item -Path "$PSFolder\UniversalDashboard.Markdown.*.bundle.js.map" -Force -ErrorAction SilentlyContinue
 
-Import-Module $OutputPath\UniversalDashboard.Markdown\UniversalDashboard.Markdown.psd1
-New-MarkdownHelp -Module UniversalDashboard.Markdown -OutputFolder $OutputPath\UniversalDashboard.Markdown\Help -Force
-New-ExternalHelp -Path "$OutputPath\UniversalDashboard.Markdown\Help" -OutputPath "$OutputPath\UniversalDashboard.Markdown\Help\en-US\ UniversalDashboard.Markdown-help.xml"
+# Import-Module $OutputPath\UniversalDashboard.Markdown\UniversalDashboard.Markdown.psd1
+# New-MarkdownHelp -Module UniversalDashboard.Markdown -OutputFolder $OutputPath\UniversalDashboard.Markdown\Help -Force
+# New-ExternalHelp -Path "$OutputPath\UniversalDashboard.Markdown\Help" -OutputPath "$OutputPath\UniversalDashboard.Markdown\Help\en-US\ UniversalDashboard.Markdown-help.xml"
 
 

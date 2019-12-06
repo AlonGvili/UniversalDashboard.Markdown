@@ -1,28 +1,29 @@
 import React from "react";
-import PropTypes from 'prop-types';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { github }  from 'react-syntax-highlighter/dist/esm/styles/hljs';
+// import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+// import { okaidia }  from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import powershell from 'react-syntax-highlighter/dist/esm/languages/prism/powershell';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+import json from 'react-syntax-highlighter/dist/esm/languages/prism/json';
+import javascript from 'react-syntax-highlighter/dist/esm/languages/prism/javascript';
+import csharp from 'react-syntax-highlighter/dist/esm/languages/prism/csharp';
+import okaidia from 'react-syntax-highlighter/dist/esm/styles/prism/okaidia';
+
+SyntaxHighlighter.registerLanguage('powershell', powershell);
+SyntaxHighlighter.registerLanguage('jsx', jsx);
+SyntaxHighlighter.registerLanguage('json', json);
+SyntaxHighlighter.registerLanguage('javascript', javascript);
+SyntaxHighlighter.registerLanguage('csharp', csharp);
+// import { github }  from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
 export default class CodeBlock extends React.Component {
     render() {
-    const { language, value, showLineNumbers, customStyle } = this.props;
+    const { value, showLineNumbers, customStyle } = this.props;
     return (
-      <SyntaxHighlighter language={language} showLineNumbers={showLineNumbers} customStyle={customStyle} style={github} >
-        {value}
+      <SyntaxHighlighter language={"powershell" || "csharp" || "jsx" || "javascript" || "json"} showLineNumbers={showLineNumbers} customStyle={customStyle} style={okaidia} >
+        {value.trim()}
       </SyntaxHighlighter>
     );
   }
 } 
-
-CodeBlock.propTypes = {
-    value: PropTypes.string.isRequired,
-    language: PropTypes.string,
-    showLineNumbers:PropTypes.bool,
-    customStyle:PropTypes.object,
-    escapeHtml:PropTypes.bool
-}
-
-CodeBlock.defaultProps = {
-    language: ''
-}
