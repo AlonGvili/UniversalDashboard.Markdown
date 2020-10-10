@@ -1,12 +1,10 @@
 import React from "react";
-import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class H6Tag extends React.Component {
-    render() {
-        const {value, styles} = this.props;
-        const H6 = styled.h6` 
-            ${styles} 
-        `;
-        return ( <H6>{value}</H6> );
-    }
-} 
+export default function H6Tag({ children, styles }) {
+  return (
+    <Loader>
+      <h6 style={{ ...styles }}>{children}</h6>;
+    </Loader>
+  );
+}

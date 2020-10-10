@@ -1,17 +1,12 @@
 import React from "react";
-// import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class Tbody extends React.Component {
-    render() {
-        const {styles, value} = this.props
-        let tbodyStyle 
-        if(styles.hasOwnProperty('table')){
-            if(styles.hasOwnProperty.call(styles.table, 'tbody')){
-                tbodyStyle = styles.table.tbody
-            }
-        }
-        return ( 
-            <tbody className='ud-markdown-table-body' style={{...tbodyStyle}}>{value}</tbody> 
-        );
-    }
-} 
+export default function Tbody({ styles, children }) {
+  return (
+    <Loader>
+      <tbody className="ud-markdown-table-body" style={{ ...styles }}>
+        {children}
+      </tbody>
+    </Loader>
+  );
+}

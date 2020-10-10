@@ -1,11 +1,12 @@
-import React, { Fragment } from "react";
-// import styled from "styled-components";
+import React from "react";
+import Loader from "../loader/Loader.js";
 
-export default class Root extends React.Component {
-    render() {
-        const { styles, value } = this.props
-        return (
-        <article className="ud-markdown-root" style={{...styles}}>{value}</article>
-        );
-    }
-} 
+export default function Root({ children, styles }) {
+  return (
+    <Loader>
+      <article className="ud-markdown-root" style={{ ...styles }}>
+        {children}
+      </article>
+    </Loader>
+  );
+}

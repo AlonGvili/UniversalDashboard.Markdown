@@ -1,17 +1,13 @@
 import React from "react";
+import Loader from "../loader/Loader.js";
 // import styled from "styled-components";
 
-export default class ListItem extends React.Component {
-    render() {
-        const { value, styles } = this.props
-        let listItemStyle
-        if (styles.hasOwnProperty('list')) {
-            if (styles.list.hasOwnProperty('listitem')) {
-                listItemStyle = styles.list.listitem
-            }
-        }
-        return (
-            <li className='ud-markdown-list-item' style={{ ...listItemStyle }}>{value}</li>
-        );
-    }
-} 
+export default function ListItem({ children, styles }) {
+  return (
+    <Loader>
+      <li className="ud-markdown-list-item" style={{ ...styles }}>
+        {children}
+      </li>
+    </Loader>
+  );
+}

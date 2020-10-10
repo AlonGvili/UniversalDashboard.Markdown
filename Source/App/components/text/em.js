@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class Emphasis extends React.Component {
-    render() {
-        const {styles, value} = this.props;
-        const Em = styled.em` 
-            ${styles} 
-        `;
-        return ( 
-            <Em>{value}</Em>
-        );
-    }
-} 
+export default function Emphasis({ styles, value }) {
+  const Em = styled.em`
+    ${styles}
+  `;
+  return (
+    <Loader>
+      <Em>{value}</Em>
+    </Loader>
+  );
+}

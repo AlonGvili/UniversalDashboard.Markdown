@@ -1,14 +1,16 @@
 import React from "react";
+import Loader from "../loader/Loader.js";
 
-export default class Image extends React.Component {
-    render() {
-        const {src, alt, title, styles} = this.props;
-        let imgStyle
-        if(styles.hasOwnProperty('img')){
-            imgStyle = styles.img
-        }
-        return ( 
-            <img className='ud-markdown-img' style={{...imgStyle}} src={src} title={title} alt={alt}/>
-        );
-    }
-} 
+export default function Image({ src, alt, title, styles }) {
+  return (
+    <Loader>
+      <img
+        className="ud-markdown-img"
+        style={{ ...styles }}
+        src={src}
+        title={title}
+        alt={alt}
+      />
+    </Loader>
+  );
+}

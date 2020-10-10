@@ -1,15 +1,13 @@
 import React from "react";
-import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class Link extends React.Component {
-    render() {
-        const {href, value, styles } = this.props;
-        console.log(value)
-        const Lk = styled.a` 
-        ${styles.link ? styles.link : null} 
-        `;
-        return ( 
-            <Lk href={href}>{value.children}</Lk>
-        );
-    }
-} 
+export default function Link({ href, children, styles }) {
+  return (
+    <Loader>
+      <a href={href} style={{ ...styles }}>
+        {children}
+      </a>
+      ;
+    </Loader>
+  );
+}

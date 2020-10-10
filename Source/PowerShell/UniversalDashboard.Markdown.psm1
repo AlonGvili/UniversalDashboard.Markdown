@@ -1,20 +1,20 @@
 $JsFile = Get-ChildItem "$PSScriptRoot\main.*.bundle.js"
 
-# Any other JS files in the bundle
-$JsFiles = Get-ChildItem "$PSScriptRoot\*.js"
-# Register all the other scripts. We don't care about the asset ID. They will be loaded by the main JS file.
-foreach ($item in $JsFiles) {
-    [UniversalDashboard.Services.AssetService]::Instance.RegisterAsset($item.FullName) | Out-Null
-}
-# Source maps to make it easier to debug in the browser 
-$Maps = Get-ChildItem "$PSScriptRoot\*.map"
 
 $AssetId = [UniversalDashboard.Services.AssetService]::Instance.RegisterScript($JsFile.FullName)
-# Register all the source map files so we can make debugging easier.
-foreach($item in $Maps)
-{
-    [UniversalDashboard.Services.AssetService]::Instance.RegisterAsset($item.FullName) | Out-Null
+
+
+# Any other JS files in the bundle
+$JsFiles = Get-ChildItem "$PSScriptRoot\*.js"
+
+
+# Register all the other scripts. We don't care about the asset ID. They will be loaded by the main JS file.
+foreach ($item in $JsFiles) {
+    [UniversalDashboard.Services.AssetService]::Instance.RegisterScript($item.FullName) | Out-Null
 }
+
+
+
 
 <#
 .SYNOPSIS
@@ -74,11 +74,21 @@ function New-UDMarkdown {
         [Parameter(Mandatory)]
         [string]$Markdown,
         [parameter()]
-        [switch]$ShowLineNumberInCodeBlock,
+        [switch]$ShowLineNumbers,
         [parameter()]
         [hashtable]$Styles = @{},
         [parameter()]
-        [switch]$BlockRawHtml
+        [switch]$BlockRawHtml,
+        [parameter()]
+        [ValidateSet("okaidia", "atomDark", "darcula", "vsDark")]
+        [string]$Theme = "vsDark",
+        [parameter()]
+        [ValidateSet( "powershell",
+            "csharp",
+            "jsx",
+            "javascript",
+            "json")]
+        [string]$Language = "powershell"
     )
 
     @{
@@ -87,10 +97,13 @@ function New-UDMarkdown {
         id              = $Id 
         type            = 'ud-markdown'
 
+
         markdown        = $Markdown
-        showLineNumbers = $ShowLineNumberInCodeBlock.IsPresent
+        showLineNumbers = $ShowLineNumbers.IsPresent
         styles          = $Styles
         escapeHtml      = $BlockRawHtml.IsPresent
+        theme           = $Theme
+        language        = $Language
     }
 }
 

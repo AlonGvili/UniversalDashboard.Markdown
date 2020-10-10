@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
-export default class H2Tag extends React.Component {
-    render() {
-        const {value, styles} = this.props;
-        const H2 = styled.h2` 
-            ${styles} 
-        `;
-        return ( <H2>{value}</H2> );
-    }
-} 
+export default function H2Tag({ children, styles }) {
+  const H2 = styled.h2`
+    ${styles}
+  `;
+  return <H2>{children}</H2>;
+}

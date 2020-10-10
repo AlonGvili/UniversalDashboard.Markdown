@@ -1,8 +1,18 @@
 {
-    "presets" : ["@babel/preset-react"],
-    "plugins": [
-        "babel-plugin-styled-components",
-        "@babel/plugin-proposal-class-properties",
-        "@babel/plugin-syntax-dynamic-import",    
-      ]
-  }
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [">0.5%", "not dead"]
+        }
+      }
+    ],
+    "@babel/preset-react"
+  ],
+  "plugins": [
+    "babel-plugin-styled-components",
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-syntax-dynamic-import"
+  ]
+}

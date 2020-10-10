@@ -1,15 +1,14 @@
 import React from "react";
+import Loader from "../loader/Loader";
 import styled from "styled-components";
 
-export default class Paragraph extends React.Component {
-    render() {
-        const {value, styles} = this.props;
-        let paragraphStyle
-        if(styles.hasOwnProperty('p')){
-            paragraphStyle = styles.p   
-        }
-        return ( 
-            <p className='ud-markdown-paragraph' style={{...paragraphStyle}}>{value}</p> 
-        );
-    }
-} 
+export default function Paragraph({ children, styles }) {
+  const P = styled.p`
+    ${styles}
+  `;
+  return (
+    <Loader>
+      <P className="ud-markdown-paragraph">{children}</P>
+    </Loader>
+  );
+}

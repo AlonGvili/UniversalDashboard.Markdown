@@ -1,5 +1,3 @@
-![alt text](https://png.icons8.com/ios/250/bdc3c7/markdown.png "Logo Title Text 1")
-
 
 # UDMarkdown
 ###### markdown component for universal dashboard
@@ -8,7 +6,7 @@
 Its a custom component for Universal Dashboard that let you render markdown inside Universal Dashboard.
 
 ---
-## Get Started...
+## Get Started...   
 
 1. clone the repo
 2. cd into Source

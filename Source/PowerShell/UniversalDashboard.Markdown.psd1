@@ -12,7 +12,7 @@
     RootModule = 'UniversalDashboard.Markdown.psm1'
     
     # Version number of this module.
-    ModuleVersion = '1.3.0'
+    ModuleVersion = '1.4.0'
     
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -107,9 +107,7 @@
             # IconUri = ''
     
             # ReleaseNotes of this module
-            ReleaseNotes = 'Register only powershell, csharp, jsx, javascript, json as languages for react-syntax-highlighter,
-            for small bundle size and fast loading & rendering the content.
-            add react suspense and lazy for code splitting and lazy loading.'
+            ReleaseNotes = 'Rewrite the module using React function, bug fixes. add theme property to use in code block, add language property for syntex highlight'
         } # End of PSData hashtable
     
     } # End of PrivateData hashtable

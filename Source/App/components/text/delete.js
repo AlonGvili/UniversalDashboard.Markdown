@@ -1,14 +1,14 @@
 import React from "react";
 import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class Delete extends React.Component {
-    render() {
-        const {styles, value} = this.props;
-        const Del = styled.del` 
-            ${styles} 
-        `;
-        return ( 
-            <Del>{value}</Del>
-        );
-    }
-} 
+export default function Delete({ styles, children }) {
+  const Del = styled.del`
+    ${styles}
+  `;
+  return (
+    <Loader>
+      <Del>{children}</Del>;
+    </Loader>
+  );
+}

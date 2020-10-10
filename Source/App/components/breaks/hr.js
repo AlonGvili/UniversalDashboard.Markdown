@@ -1,15 +1,12 @@
 import React from "react";
-import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class Hr extends React.Component {
-    render() {
-        const {styles, value} = this.props
-        let hrStyle
-        if(styles.hasOwnProperty('hr')){
-            hrStyle = styles.hr   
-        }
-        return ( 
-            <hr className='ud-markdown-hr' style={{...hrStyle}}>{value}</hr>
-        );
-    }
-} 
+export default function Hr({ styles, children }) {
+  return (
+    <Loader>
+      <hr className="ud-markdown-hr" style={{ ...styles }}>
+        {children}
+      </hr>
+    </Loader>
+  );
+}

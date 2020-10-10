@@ -1,11 +1,10 @@
 import React from "react";
-// import styled from "styled-components";
+import Loader from "../loader/Loader.js";
 
-export default class InlineCode extends React.Component {
-    render() {
-        const {value, styles} = this.props
-        return ( 
-            <code style={{...styles}}>{value}</code> 
-        );
-    }
-} 
+export default function InlineCode({ children, styles }) {
+  return (
+    <Loader>
+      <code style={{ ...styles }}>{children}</code>;
+    </Loader>
+  );
+}
